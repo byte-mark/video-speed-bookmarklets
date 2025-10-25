@@ -23,7 +23,7 @@ A small set of browser bookmarklets you can use to quickly adjust playback speed
 
 ---
 
-### Example (for reference only)
+### Example Bookmarklet - 1.5x Speed (for reference only)
 
 ```js
 javascript:(function(){   const videos = document.querySelectorAll('video');   if (videos.length === 0) {     alert('No videos found.');     return;   }   let count = 0;   videos.forEach(v => {     try {       v.playbackRate = 1.5;       count++;     } catch (e) {}   });   alert(`Set ${count} video(s) to 1.5x speed.`); })();
