@@ -1,20 +1,32 @@
-# Video Speed Bookmarklets
+# 🔖 Bookmarklets Collection
 
-A collection of four simple JavaScript bookmarklets that let you change the playback speed of any HTML5 video in your browser.
-
----
-
-## 🚀 Usage
-
-1. Copy one of the bookmarklet scripts below.  
-2. Create a new browser bookmark.  
-3. Paste the code into the bookmark’s **URL** field.  
-4. Click it while watching a video to change speed instantly.
+A small set of browser bookmarklets you can use to quickly adjust playback speed (or other functions) directly from your bookmarks bar.
 
 ---
 
-### 🧩 Bookmarklets
+## 🚀 How to Install
 
-#### ▶️ 0.5× Speed
-```javascript
-javascript:(()=>{document.querySelectorAll('video').forEach(v=>v.playbackRate=0.5);})();
+1. Visit the GitHub Pages version of this repo:  
+   👉 **[Open the Bookmarklet Page](https://byte-mark.github.io/video-speed-bookmarklets)**
+
+2. Drag any of the buttons (e.g., “1.25× Speed”) to your bookmarks bar.
+
+3. That’s it — click it anytime while watching a video to apply the change!
+
+---
+
+## 🧠 Notes
+
+- Works in most browsers: Chrome, Edge, Brave, and Firefox.
+- On Safari, you may need to enable “Show Favorites Bar” first.
+- If you edit the code, remember to prefix with `javascript:` and URL-encode if you embed directly in markdown.
+
+---
+
+### Example (for reference only)
+
+```js
+javascript:(function(){
+  var v = document.querySelector('video');
+  if (v) { v.playbackRate = 1.25; }
+})();

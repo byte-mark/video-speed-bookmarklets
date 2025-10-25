@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookmarklets</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      background: #f9fafb;
+      color: #111;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+    .bookmarklet {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0.5rem 1rem 0;
+      transition: background 0.2s;
+    }
+    .bookmarklet:hover {
+      background: #1d4ed8;
+    }
+    p.note {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔖 Bookmarklets</h1>
+  <p>Drag any of these buttons to your bookmarks bar:</p>
+
+  <div>
+    <a class="bookmarklet" href="javascript:(function(){document.body.style.transition='all 0.2s';document.body.style.zoom='90%';})();">
+      0.9× Speed
+    </a>
+
+    <a class="bookmarklet" href="javascript:(function(){document.body.style.transition='all 0.2s';document.body.style.zoom='100%';})();">
+      1.0× (Normal)
+    </a>
+
+    <a class="bookmarklet" href="javascript:(function(){document.body.style.transition='all 0.2s';document.body.style.zoom='110%';})();">
+      1.1× Speed
+    </a>
+
+    <a class="bookmarklet" href="javascript:(function(){document.body.style.transition='all 0.2s';document.body.style.zoom='125%';})();">
+      1.25× Speed
+    </a>
+
+    <a class="bookmarklet" href="javascript:(function(){document.body.style.transition='all 0.2s';document.body.style.zoom='150%';})();">
+      1.5× Speed
+    </a>
+  </div>
+
+  <p class="note">
+    If dragging doesn’t work in your browser, right-click and select “Bookmark This Link” or “Add to Favorites.”
+  </p>
+</body>
+</html>
