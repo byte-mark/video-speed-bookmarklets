@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Speed Bookmarklets Demo</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f9fa;
+      margin: 2rem;
+      color: #222;
+      text-align: center;
+    }
+    video {
+      width: 80%;
+      max-width: 640px;
+      margin: 2rem 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #333;
+    }
+    a.bookmarklet {
+      display: inline-block;
+      margin: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: #007acc;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    a.bookmarklet:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎬 Video Speed Bookmarklets Demo</h1>
+  <p>Play the video, then click one of your bookmarklets to change its speed.</p>
+
+  <video controls>
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p>
+    <a href="javascript:(()=>{document.querySelectorAll('video').forEach(v=>v.playbackRate=0.5);})();" class="bookmarklet">0.5×</a>
+    <a href="javascript:(()=>{document.querySelectorAll('video').forEach(v=>v.playbackRate=1);})();" class="bookmarklet">1×</a>
+    <a href="javascript:(()=>{document.querySelectorAll('video').forEach(v=>v.playbackRate=1.5);})();" class="bookmarklet">1.5×</a>
+    <a href="javascript:(()=>{document.querySelectorAll('video').forEach(v=>v.playbackRate=2);})();" class="bookmarklet">2×</a>
+  </p>
+
+  <p style="margin-top:2rem; font-size:0.9rem;">
+    You can drag these buttons to your bookmarks bar to save them.
+  </p>
+</body>
+</html>
