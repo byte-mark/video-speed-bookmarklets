@@ -1,68 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookmarklets</title>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      line-height: 1.6;
-      padding: 2rem;
-      background: #f9fafb;
-      color: #111;
-    }
-    h1 {
-      margin-bottom: 0.5rem;
-    }
-    .bookmarklet {
-      display: inline-block;
-      background: #2563eb;
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      margin: 0.5rem 0.5rem 1rem 0;
-      transition: background 0.2s;
-    }
-    .bookmarklet:hover {
-      background: #1d4ed8;
-    }
-    p.note {
-      color: #555;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Speed Control Bookmarklets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .bookmarklet-item {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .bookmarklet-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .bookmarklet-item p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .bookmarklet-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: move;
+        }
+        
+        .bookmarklet-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .instructions h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+        
+        .feature-list li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            color: #856404;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
 </head>
 <body>
-  <h1>🔖 Bookmarklets</h1>
-  <p>Drag any of these buttons to your bookmarks bar:</p>
-
-  <div>
-    <a class="bookmarklet" href="javascript:(function(){  const videos = document.querySelectorAll('video');  if (videos.length === 0) {    alert('No videos found.');    return;  }  let count = 0;  videos.forEach(v => {    try {      v.playbackRate = .5;      count++;    } catch (e) {}  });  alert(`Set ${count} video(s) to .5x speed.`);})();">
-      0.5× Speed
-    </a>
-
-    <a class="bookmarklet" href="javascript:(function(){  const videos = document.querySelectorAll('video');  if (videos.length === 0) {    alert('No videos found.');    return;  }  let count = 0;  videos.forEach(v => {    try {      v.playbackRate = 1.0;      count++;    } catch (e) {}  });  alert(`Set ${count} video(s) to 1x speed.`);})();">
-      1.0× (Normal)
-    </a>
-
-    <a class="bookmarklet" href="javascript:(function(){   const videos = document.querySelectorAll('video');   if (videos.length === 0) {     alert('No videos found.');     return;   }   let count = 0;   videos.forEach(v => {     try {       v.playbackRate = 1.5;       count++;     } catch (e) {}   });   alert(`Set ${count} video(s) to 1.5x speed.`); })();">
-      1.5× Speed
-    </a>
-
-    <a class="bookmarklet" href="javascript:(function(){   const videos = document.querySelectorAll('video');   if (videos.length === 0) {     alert('No videos found.');     return;   }   let count = 0;   videos.forEach(v => {     try {       v.playbackRate = 2;       count++;     } catch (e) {}   });   alert(`Set ${count} video(s) to 2x speed.`); })();">
-      2× Speed
-    </a>
-
-    <a class="bookmarklet" href="javascript:(function(){   const videos = document.querySelectorAll('video');   if (videos.length === 0) {     alert('No videos found.');     return;   }   let count = 0;   videos.forEach(v => {     try {       v.playbackRate = 2.5;       count++;     } catch (e) {}   });   alert(`Set ${count} video(s) to 2.5x speed.`); })();">
-      2.5× Speed
-    </a>
-  </div>
-
-  <p class="note">
-    If dragging doesn’t work in your browser, right-click and select “Bookmark This Link” or “Add to Favorites.”
-  </p>
+    <div class="container">
+        <h1>🎬 Video Speed Control Bookmarklets</h1>
+        <p class="subtitle">Control video playback speed on any website with these handy bookmarklets</p>
+        
+        <div class="instructions">
+            <h3>📌 How to Install:</h3>
+            <ol>
+                <li>Drag any bookmarklet button below to your bookmarks bar</li>
+                <li>If your bookmarks bar is hidden, press <code>Ctrl+Shift+B</code> (Windows) or <code>Cmd+Shift+B</code> (Mac)</li>
+                <li>Navigate to any page with a video (YouTube, Vimeo, etc.)</li>
+                <li>Click the bookmarklet to control the video speed!</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Interactive Speed Selector</h2>
+            
+            <div class="bookmarklet-item">
+                <h3>Visual Speed Menu</h3>
+                <p>Click to open a popup menu with multiple speed options. Perfect for quick selection!</p>
+                <ul class="feature-list">
+                    <li>10 preset speeds (0.25x to 3x)</li>
+                    <li>Clean, centered popup interface</li>
+                    <li>One-click selection</li>
+                </ul>
+                <a href="javascript:(function(){var v=document.querySelector('video');if(!v){alert('No video found');return;}var d=document.createElement('div');d.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border:2px solid black;z-index:999999;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.3)';d.innerHTML='<h3 style=margin:0 0 15px 0>Select Speed</h3>';var speeds=[0.25,0.5,0.75,1,1.25,1.5,1.75,2,2.5,3];speeds.forEach(function(s){var b=document.createElement('button');b.textContent=s+'x';b.style.cssText='margin:5px;padding:8px 15px;font-size:16px;cursor:pointer;border:1px solid #667eea;background:white;border-radius:4px';b.onmouseover=function(){this.style.background='#667eea';this.style.color='white'};b.onmouseout=function(){this.style.background='white';this.style.color='black'};b.onclick=function(){v.playbackRate=s;document.body.removeChild(d)};d.appendChild(b)});var c=document.createElement('button');c.textContent='Cancel';c.style.cssText='margin:5px;padding:8px 15px;background:#ccc;border:none;border-radius:4px;cursor:pointer';c.onclick=function(){document.body.removeChild(d)};d.appendChild(c);document.body.appendChild(d)})();" class="bookmarklet-link">📋 Speed Menu</a>
+            </div>
+            
+            <div class="bookmarklet-item">
+                <h3>Speed Slider</h3>
+                <p>Drag a slider to select your preferred speed. Smooth and intuitive!</p>
+                <ul class="feature-list">
+                    <li>Choose from 0.5x, 1x, 1.5x, 2x, or 2.5x</li>
+                    <li>Visual slider interface</li>
+                    <li>See speed value as you drag</li>
+                </ul>
+                <a href="javascript:(function(){var v=document.querySelector('video');if(!v){alert('No video found');return;}var d=document.createElement('div');d.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border:2px solid black;z-index:999999;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.3);min-width:350px';d.innerHTML='<h3 style=margin:0 0 20px 0;text-align:center>Select Speed</h3><div style=text-align:center;font-size:24px;font-weight:bold;margin-bottom:15px;color:#667eea><span id=speedValue>1.0x</span></div><input type=range id=speedSlider min=0 max=4 value=2 step=1 style=width:100%;height:8px;border-radius:5px;outline:none;-webkit-appearance:none;appearance:none;background:#ddd><style>#speedSlider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#667eea;cursor:pointer}#speedSlider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#667eea;cursor:pointer;border:none}</style><div style=display:flex;justify-content:space-between;margin-top:10px;font-size:12px;color:#666><span>0.5x</span><span>1x</span><span>1.5x</span><span>2x</span><span>2.5x</span></div><div style=margin-top:20px;text-align:center><button id=applyBtn style=margin:5px;padding:10px 20px;font-size:16px;cursor:pointer;border:none;background:#667eea;color:white;border-radius:4px>Apply</button><button id=cancelBtn style=margin:5px;padding:10px 20px;background:#ccc;border:none;border-radius:4px;cursor:pointer>Cancel</button></div>';document.body.appendChild(d);var speeds=[0.5,1,1.5,2,2.5];var slider=document.getElementById('speedSlider');var display=document.getElementById('speedValue');slider.oninput=function(){display.textContent=speeds[this.value]+'x'};document.getElementById('applyBtn').onclick=function(){v.playbackRate=speeds[slider.value];document.body.removeChild(d)};document.getElementById('cancelBtn').onclick=function(){document.body.removeChild(d)}})();" class="bookmarklet-link">🎚️ Speed Slider</a>
+            </div>
+            
+            <div class="bookmarklet-item">
+                <h3>Keyboard Control Widget</h3>
+                <p>Adds a persistent control widget with keyboard shortcuts. Perfect for power users!</p>
+                <ul class="feature-list">
+                    <li>Use arrow keys: ← slower | faster →</li>
+                    <li>Changes speed by 0.25x increments</li>
+                    <li>Shows current speed in real-time</li>
+                    <li>Press ESC to close</li>
+                </ul>
+                <a href="javascript:(function(){var v=document.querySelector('video');if(!v){alert('No video found');return;}var d=document.createElement('div');d.style.cssText='position:fixed;bottom:20px;right:20px;background:rgba(0,0,0,0.8);color:white;padding:15px;border-radius:8px;z-index:999999;font-family:monospace';d.innerHTML='Speed: <span id=speed>'+v.playbackRate+'x</span><br>← Slower | Faster →<br>ESC to close';document.body.appendChild(d);document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){v.playbackRate=Math.max(0.25,v.playbackRate-0.25)}else if(e.key==='ArrowRight'){v.playbackRate=Math.min(4,v.playbackRate+0.25)}else if(e.key==='Escape'){document.body.removeChild(d);return;}document.getElementById('speed').textContent=v.playbackRate.toFixed(2)+'x'})})();" class="bookmarklet-link">⌨️ Keyboard Control</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Quick Speed Presets</h2>
+            <p style="margin-bottom: 15px;">Single-click bookmarklets for instant speed changes:</p>
+            
+            <div class="bookmarklet-item">
+                <h3>Common Speeds</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=0.5}else{alert('No video found')}})();" class="bookmarklet-link">0.5x Slow</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=0.75}else{alert('No video found')}})();" class="bookmarklet-link">0.75x</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=1}else{alert('No video found')}})();" class="bookmarklet-link">1x Normal</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=1.25}else{alert('No video found')}})();" class="bookmarklet-link">1.25x</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=1.5}else{alert('No video found')}})();" class="bookmarklet-link">1.5x</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=1.75}else{alert('No video found')}})();" class="bookmarklet-link">1.75x</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=2}else{alert('No video found')}})();" class="bookmarklet-link">2x Fast</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=2.5}else{alert('No video found')}})();" class="bookmarklet-link">2.5x</a>
+                    <a href="javascript:(function(){var v=document.querySelector('video');if(v){v.playbackRate=3}else{alert('No video found')}})();" class="bookmarklet-link">3x</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>💡 Pro Tip:</strong> The "Speed Slider" and "Visual Speed Menu" are the most versatile options. Try them first!
+        </div>
+        
+        <div class="note" style="background: #f0f0f0; border-color: #999; color: #333; margin-top: 30px;">
+            <strong>Works on:</strong> YouTube, Vimeo, Netflix, Udemy, Coursera, and most HTML5 video players!
+        </div>
+    </div>
 </body>
 </html>
-
-
